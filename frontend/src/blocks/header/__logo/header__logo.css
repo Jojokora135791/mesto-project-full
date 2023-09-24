@@ -1,0 +1,22 @@
+.header__logo {
+  margin-bottom: 41px;
+  background: url(../../../images/Vector.svg);
+  width: 142px;
+  height: 33px;
+  background-size: contain;
+  background-repeat: no-repeat;;
+}
+
+@media screen and (max-width: 920px){
+  .header__logo {
+    margin-left: 20px;
+    margin-right: 20px;
+    }
+}
+@media screen and (max-width: 680px){
+  .header__logo {
+    margin: 0 20px 31px;
+    width: 104px;
+    height: 24px;
+    }
+}

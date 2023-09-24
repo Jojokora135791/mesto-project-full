@@ -1,0 +1,9 @@
+.element__button-photo {
+  padding: 0;
+  border: none;
+  color: inherit;
+  background: transparent;
+  cursor: pointer;
+  width: 100%;
+  min-height: 282px;
+}
