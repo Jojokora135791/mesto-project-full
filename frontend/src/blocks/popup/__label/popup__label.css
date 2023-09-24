@@ -1,0 +1,11 @@
+.popup__label {
+  display: block;
+  margin-top: 54px;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.popup__label:last-of-type {
+  margin-top: 13px;
+  margin-bottom: 50px;
+}

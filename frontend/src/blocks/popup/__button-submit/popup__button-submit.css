@@ -1,0 +1,17 @@
+.popup__button-submit {
+  height: 50px;
+  width: 100%;
+  background-color: black;
+  color: #FFF;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  transition: opacity .2s linear;
+  cursor: pointer;
+}
+.popup__button-save:hover {
+  opacity: 0.6;
+}

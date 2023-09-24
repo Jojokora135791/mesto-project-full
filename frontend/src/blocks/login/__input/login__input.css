@@ -1,0 +1,29 @@
+.login__input {
+  margin-bottom: 30px;
+  outline: none;
+  border: none;
+  padding-bottom: 12px;
+  
+  border-bottom: 2px solid #fff;
+  background-color: black;
+  color: #fff;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.login__input:last-of-type {
+  margin-bottom: 215px;
+}
+
+.login__input::placeholder {
+  color: #A9A9A9;
+}
+
+@media screen and (max-width: 400px){
+  .login__input:last-of-type {
+    margin-bottom: 165px;
+  }
+}

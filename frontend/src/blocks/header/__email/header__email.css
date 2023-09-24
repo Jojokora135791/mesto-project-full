@@ -1,0 +1,16 @@
+.header__email {
+  display: block;
+  margin: 0;
+  margin-right: 30px;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: #FFF;
+}
+
+@media screen and (max-width: 680px) {
+  .header__email {
+    display: none;
+     }
+}

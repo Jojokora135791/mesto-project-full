@@ -1,0 +1,27 @@
+.profile__author {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 400px;
+  margin: 0;
+  margin-right: 18px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 42px;
+  line-height: 48px;
+}
+@media screen and (max-width: 800px){
+  .profile__author {
+    margin-top: 25px;
+    text-align: center;
+    }
+}
+@media screen and (max-width: 540px){
+  .profile__author {
+    max-width: 220px;
+    margin-right: 10px;
+    font-size: 27px;
+    line-height: 33px;
+    }
+}
