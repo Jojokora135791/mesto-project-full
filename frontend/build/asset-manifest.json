@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/static/css/main.04439292.css",
+    "main.js": "/static/js/main.37d10e55.js",
+    "static/js/787.0283d8b9.chunk.js": "/static/js/787.0283d8b9.chunk.js",
+    "static/media/Inter-Medium.woff?v=3.19": "/static/media/Inter-Medium.9053572c46aeb4b16caa.woff",
+    "static/media/Inter-Black.woff?v=3.19": "/static/media/Inter-Black.c6938660eec019fefd68.woff",
+    "static/media/Inter-Regular.woff?v=3.19": "/static/media/Inter-Regular.8c206db99195777c6769.woff",
+    "static/media/Inter-Medium.woff2?v=3.19": "/static/media/Inter-Medium.293fd13dbca5a3e450ef.woff2",
+    "static/media/Inter-Black.woff2?v=3.19": "/static/media/Inter-Black.15ca31c0a2a68f76d2d1.woff2",
+    "static/media/Inter-Regular.woff2?v=3.19": "/static/media/Inter-Regular.c8ba52b05a9ef10f4758.woff2",
+    "static/media/Vector.svg": "/static/media/Vector.ab0f4b930baa26c3efae.svg",
+    "static/media/element-like.svg": "/static/media/element-like.0e390048c288271ab07f.svg",
+    "static/media/fail.svg": "/static/media/fail.df8eddf661ff88f2d0ef.svg",
+    "static/media/remove-card.svg": "/static/media/remove-card.823b0cf1b0b7e9cb7cad.svg",
+    "static/media/success.svg": "/static/media/success.1b6082f862eac35e2514.svg",
+    "static/media/button-like.svg": "/static/media/button-like.e787eeb70bb65b7b453a.svg",
+    "index.html": "/index.html",
+    "static/media/button-edit-profile.svg": "/static/media/button-edit-profile.6c7bf05444b9793fdf6e.svg",
+    "static/media/edit-profile.svg": "/static/media/edit-profile.a086f758840ae814ecde.svg",
+    "static/media/Burger.svg": "/static/media/Burger.38918477c657aff06ad7.svg",
+    "static/media/popup-closeIcon.svg": "/static/media/popup-closeIcon.039f1f5203f653b4bacd.svg",
+    "static/media/button-add-card.svg": "/static/media/button-add-card.bed8c136e13907f5eefb.svg",
+    "main.04439292.css.map": "/static/css/main.04439292.css.map",
+    "main.37d10e55.js.map": "/static/js/main.37d10e55.js.map",
+    "787.0283d8b9.chunk.js.map": "/static/js/787.0283d8b9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.04439292.css",
+    "static/js/main.37d10e55.js"
+  ]
+}
