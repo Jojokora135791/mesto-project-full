@@ -16,6 +16,7 @@ class Api {
     return fetch(`${this._baseUrl}/cards`, {
       method: "GET",
       headers: this._headers,
+      credentials:'include',
     }).then((res) => this._checkResult(res));
   }
 
@@ -23,7 +24,8 @@ class Api {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "GET",
       headers: this._headers,
-    }).then((res) => this._checkResult(res));
+      credentials:'include',
+    }).then((res) => this._checkResult(res))
   }
 
   patchUserInfo({ name, about }) {
@@ -34,6 +36,7 @@ class Api {
         name: name,
         about: about,
       }),
+      credentials:'include',
     }).then((res) => this._checkResult(res));
   }
 
@@ -45,22 +48,23 @@ class Api {
         name: name,
         link: link,
       }),
+      credentials:'include',
     }).then((res) => this._checkResult(res));
   }
 
-  deleteCard(cardId, isOwn) {
-    return isOwn
-      ? fetch(`${this._baseUrl}/cards/${cardId}`, {
+  deleteCard(cardId) {
+    return fetch(`${this._baseUrl}/cards/${cardId}`, {
           method: "DELETE",
           headers: this._headers,
+          credentials:'include',
         }).then((res) => this._checkResult(res))
-      : "";
   }
 
   likeCard(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: "PUT",
       headers: this._headers,
+      credentials:'include',
     }).then((res) => this._checkResult(res));
   }
 
@@ -68,6 +72,7 @@ class Api {
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: "DELETE",
       headers: this._headers,
+      credentials:'include',
     }).then((res) => this._checkResult(res));
   }
 
@@ -76,6 +81,7 @@ class Api {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: this._headers,
+      credentials:'include',
       body: JSON.stringify({
         avatar: avatar,
       }),
@@ -88,7 +94,7 @@ class Api {
 }
 
 const api = new Api({
-  baseUrl: "https://mesto.nomoreparties.co/v1/cohort-65",
+  baseUrl: "http://localhost:4000",
   headers: {
     authorization: "64e76916-bb9d-45f2-aa0a-555c04a49e1a",
     "Content-Type": "application/json",

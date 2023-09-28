@@ -18,7 +18,7 @@ function createCard(req, res, next) {
   Card
     .create({ name, link, owner: userId })
     .then((card) => {
-      res.status(201).send({ data: card });
+      res.status(201).send(card);
     })
     .catch((err) => {
       if (err.name === 'ValidationError') {

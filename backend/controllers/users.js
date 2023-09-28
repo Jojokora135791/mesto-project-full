@@ -44,7 +44,10 @@ function login(req, res, next) {
         expiresIn: '7d',
       });
 
-      res.cookie('jwt', token, { httpOnly: true });
+      res.cookie('jwt', token, {
+        httpOnly: true,
+        sameSite: true,
+      });
       res.send({ user: payload });
     })
     .catch((err) => next(new AuthorizationError('Неверный логин или пароль')));
@@ -99,7 +102,7 @@ function updateProfile(req, res, next) {
       if (!user) {
         throw new NotFoundError('Пользователь с таким ID не найден');
       }
-      return res.send({ user });
+      return res.send( user );
     })
     .catch((err) => {
       if (err.name === 'ValidationError') {
@@ -125,7 +128,7 @@ function updateAvatar(req, res, next) {
       if (!user) {
         throw new NotFoundError('Пользователь с таким ID не найден');
       }
-      return res.send({ user });
+      return res.send(user);
     })
     .catch((err) => {
       if (err.name === 'ValidationError') {

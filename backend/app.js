@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookies = require('cookie-parser');
 const { celebrate, Joi, errors } = require('celebrate');
+const cors = require('cors')
 
 const NotFoundError = require('./errors/NotFoundError');
 
@@ -13,7 +14,7 @@ const auth = require('./middlewares/auth');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 // берем адрес порта из окружения
-const { PORT = 3000 } = process.env;
+const { PORT = 4000 } = process.env;
 
 // подключаемся к серверу mongo
 mongoose.connect('mongodb://localhost:27017/mydb', {
@@ -22,7 +23,15 @@ mongoose.connect('mongodb://localhost:27017/mydb', {
   family: 4,
 });
 
+const corsOptions = {
+  origin: 'http://localhost:3000',
+  credentials: true,
+};
+
 const app = express();
+
+app.use(cors(corsOptions))
+
 // app.use(requestLogger);
 app.use(cookies());
 app.use(bodyParser.json());

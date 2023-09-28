@@ -33,6 +33,7 @@ function App() {
   const [cards, setCards] = React.useState([]);
 
   const [isLoggedIn, setLoggedIn] = React.useState(null);
+  const [checkEmail, setCheckEmail] = React.useState(null);
 
   const [isRegiserSuccessed, setIsRegiserSuccessed] = React.useState(false);
   const [isTitleInfo, setIsTitleInfo] = React.useState("");
@@ -45,26 +46,26 @@ function App() {
     Promise.all([api.getUserInfo(), api.getInitialCards()])
     .then((res) => {
       const [userData, cardsData] = res;
-        SetCurrentUser(userData);
+        SetCurrentUser(userData.data);
         setCards(cardsData);
     })
     .catch((err) => {
       console.log(err);
     });
     checkToken();
-  },[]);
+    //eslint-disable-next-line react-hooks/exhaustive-deps
+  },[checkEmail]);
 
   const checkToken = () => {
-    const jwt = localStorage.getItem("jwt");
     auth
-      .getContent(jwt)
+      .getContent()
       .then((res) => {
-        if (!res) {
-          return;
+        if (res) {
+          SetEmailProfile(res.data.email);
+          setCheckEmail(res.data.email);
+          navigate("/");
+          setLoggedIn(true);
         }
-        SetEmailProfile(res.data.email);
-        navigate("/");
-        setLoggedIn(true);
       })
       .catch((e) => setLoggedIn(false));
   };
@@ -75,6 +76,7 @@ function App() {
     auth
       .register(password, email)
       .then((data) => {
+        console.log(data)
         setIsRegiserSuccessed(true);
         setIsTitleInfo("Вы успешно зарегистрировались!");
         OpenInfoToolTip();
@@ -91,9 +93,9 @@ function App() {
     setIsLoading(true);
     auth
       .authorize(email, password)
-      .then((data) => {
-        localStorage.setItem("jwt", data.token);
+      .then(() => {
         SetEmailProfile(email);
+        setCheckEmail(email);
         setLoggedIn(true);
         setIsRegiserSuccessed(true);
         setIsTitleInfo("Вы успешно авторизировались!");
@@ -110,14 +112,12 @@ function App() {
 
   function signOut() {
     setLoggedIn(false);
-    localStorage.removeItem("jwt");
+    // localStorage.removeItem("jwt");
     navigate("/");
   }
 
   function handleCardDelete(card) {
-    const isOwn = card.owner._id === currentUser._id;
-
-    api.deleteCard(card._id, isOwn).then(() => {
+    api.deleteCard(card._id).then(() => {
       setCards((state) => state.filter((c) => c._id !== card._id));
     });
   }
@@ -140,7 +140,7 @@ function App() {
 
   function handleCardLike(card) {
     // Снова проверяем, есть ли уже лайк на этой карточке
-    const isLiked = card.likes.some((i) => i._id === currentUser._id);
+    const isLiked = card.likes.some((i) => i === currentUser._id);
 
     // Отправляем запрос в API и получаем обновлённые данные карточки
     api.changeLikeCardStatus(card._id, !isLiked).then((newCard) => {
